@@ -1,11 +1,5 @@
 {
     "csharp.semanticHighlighting.enabled": true,
-    "github.hosts": [
-        {
-            "host": "https://github.com",
-            "username": "oauth",
-            "token": "vscode://vscode.github-authentication/did-authenticate?windowid=1&code=2c2c73f07256ec152f21&state=d943a2f9-98cf-4595-93ef-82d22735a576"
-        }
-    ]
+    
 }
 
