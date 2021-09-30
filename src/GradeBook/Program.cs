@@ -9,18 +9,36 @@ namespace GradeBook
         static void Main(string[] args)
         {
 
-            var book = new Book("Joan's Grade Book");
+            var book = new DiskBook("Joan's Grade Book");
+
+            // Event handlers demonstrating how to subscribe/unsubscribe to an event.
             book.GradeAdded += OnGradeAdded;
-            book.GradeAdded += OnGradeAdded;
-            book.GradeAdded -= OnGradeAdded;
-            book.GradeAdded += OnGradeAdded;
+            // book.GradeAdded += OnGradeAdded;
+            // book.GradeAdded -= OnGradeAdded;
+            // book.GradeAdded += OnGradeAdded;
 
 
+            EnterGrades(book);
+
+            var stats = book.GetStatistics();
+
+            Console.WriteLine($"The highest grade is {stats.High}.");
+            Console.WriteLine($"The lowest grade is {stats.Low}.");
+            Console.WriteLine($"The average grade is {stats.Average}.");
+            Console.WriteLine($"The letter grade is {stats.Letter}.");
+
+            //Static method to handle the event raised by book when a grade is added.
+            static void OnGradeAdded(object sender, EventArgs e)
+            {
+                Console.WriteLine("A grade was added.");
+            }
+
+
+        }
+
+        private static void EnterGrades(IBook book)
+        {
             var done = false;
-
-
-
-
 
             while (!done)
             {
@@ -54,21 +72,6 @@ namespace GradeBook
                     Console.WriteLine("**");
                 }
             }
-
-            var stats = book.GetStatistics();
-
-            Console.WriteLine($"The highest grade is {stats.High}.");
-            Console.WriteLine($"The lowest grade is {stats.Low}.");
-            Console.WriteLine($"The average grade is {stats.Average}.");
-            Console.WriteLine($"The letter grade is {stats.Letter}.");
-
-            //Static method to handle the event raised by book when a grade is added.
-            static void OnGradeAdded(object sender, EventArgs e)
-            {
-                Console.WriteLine("A grade was added.");
-            }
-
-
         }
     }
 }
