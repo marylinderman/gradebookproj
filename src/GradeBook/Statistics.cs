@@ -35,7 +35,7 @@ namespace GradeBook
         public int Count;
 
 
-
+        //Constructor for Statistics class.
         public Statistics()
         {
             Count = 0;
